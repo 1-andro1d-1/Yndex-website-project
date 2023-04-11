@@ -2,16 +2,16 @@
 <html>
     <head>
         <title>SubScript</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     </head>
     <body>
         <header>
-            <a href="#" class="logo"><img src="/surce/logo1.png" height="50px"></a> 
+            <a href="#" class="logo"><img src="{{ url_for('static',filename='img/logo1.png') }}" height="50px"></a> 
             <ul>
                 <li><a href="#">About</a></li>
-                <li><a href="#">New</a></li>
+                <li><a href="#">New</a></li>                                                                                                                                                                                                            
                 <li><a href="#">Courses</a></li>
-                <li><a href="#">Log in</a></li>
+                <li><a href="/login">Log in</a></li>
             </ul>
         </header>
         <main>
@@ -37,14 +37,14 @@
                         </div>  
                     </div>
                 </div>
-                <p align="center" class="Sign-in2"><a href="#" class="Sign-in">Sign in</a></p>
+                <p align="center" class="Sign-in2"><a href="/register" class="Sign-in">Sign in</a></p>
             </div>
             <div class="popular">
                 <ul>
                     <li><a><div class="w">
                             <div class="d"><p align="center">python</p></div>
                             <div class="f">
-                                <img src="/surce/3d-fluency-python.png" alt="py" width="100px" >
+                                <img src="{{ url_for('static',filename='img/3d-fluency-python.png')}}" alt="py" width="100px" >
                                 <p align="center">TRY</p>
                             </div>
                         </div></a>
@@ -53,7 +53,7 @@
                         <a><div class="w">
                             <div class="d"><p align="center">python</p></div>
                             <div class="f">
-                                <img src="/surce/Unreal_Engine_icon-icons.com_56587.png" alt="py" width="100px">
+                                <img src="{{ url_for('static',filename='img/Unreal_Engine_icon-icons.com_56587.png')}}" alt="py" width="100px">
                                 <p align="center">TRY</p>
                             </div>
                         </div></a>
@@ -62,7 +62,7 @@
                         <a><div class="w">
                             <div class="d"><p align="center">python</p></div>
                             <div class="f">
-                                <img src="/surce/java_original_logo_icon_146458.png" alt="py" width="100px">
+                                <img src="{{ url_for('static',filename='img/java_original_logo_icon_146458.png')}}" alt="py" width="100px">
                                 <p align="center">TRY</p>
                             </div>
                         </div></a>
@@ -71,7 +71,7 @@
                         <a><div class="w">
                             <div class="d"><p align="center">python</p></div>
                             <div class="f">
-                                <img src="/surce/icons8-c++-240.png" alt="py" width="100px">
+                                <img src="{{ url_for('static',filename='img/icons8-c++-240.png')}}" alt="py" width="100px">
                                 <p align="center">TRY</p>
                             </div>
                         </div></a>
@@ -80,7 +80,7 @@
                         <a><div class="w">
                             <div class="d"><p align="center">python</p></div>
                             <div class="f">
-                                <img src="/surce/Unity_icon-icons.com_56592.png" alt="py" width="100px">
+                                <img src="{{ url_for('static',filename='img/Unity_icon-icons.com_56592.png')}}" alt="py" width="100px">
                                 <p align="center">TRY</p>
                             </div>
                         </div></a>
