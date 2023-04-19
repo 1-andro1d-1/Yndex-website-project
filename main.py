@@ -4,8 +4,7 @@ from data import db_session
 from data.users import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from UserLogin import UserLogin
-from somefunc import *
-
+import courses_api
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'andrew-bakradze'
@@ -56,9 +55,13 @@ def register():
     return render_template('index4.html')
 
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html', title=str(current_user.get_name()))
 
 def main():
     db_session.global_init("db/subScript.db")
+    app.register_blueprint(courses_api.blueprint)
     app.run(port=8000, host='127.0.0.1')
 
 if __name__ == '__main__':

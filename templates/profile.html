@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SubScript</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo"><img src="{{ url_for('static',filename='img/logo1.png') }}" height="50px"></a> 
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">New</a></li>                                                                                                                                                                                                            
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">{{title}}</a></li>
+            </ul>
+        </header>
+        <main>
+            <div class="profile">
+                <div class="profile-had">
+                    <div class="profile-photo"><img src="{{ url_for('static',filename='img/profile.png') }}" alt="your"></div>
+                    <div class="name"><img src="{{title}}"></div>
+                </div>
+                <div class="profile-courses">
+                    <h1 class="your courses">Your courses</h1>
+                    <div class="courses">                   
+                        {% for item in news['news'] %}
+                            <div></div>
+                            <h2>{{item["title"]}}</h2>
+                            <div>{{item["content"]}}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
