@@ -213,3 +213,39 @@ header ul li a:hover
 {
     background-color: #bebebe;
 }
+
+.exstra_concole
+{   
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    padding-top: 10px;
+    border: none;
+    color: #fff;
+}
+.main_console1
+{   
+    padding: 100px;
+    padding-top: 0px;
+}
+
+
+.console-li1
+{
+    list-style: none;
+}
+
+.main-nad1
+{
+    margin: 100px;
+}
+
+.sd
+{
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 25pt;
+    color: #fff;
+}

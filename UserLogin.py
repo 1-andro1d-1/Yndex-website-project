@@ -27,4 +27,7 @@ class UserLogin():
     def get_name(self):
         return str(self.__user.name)
     
+    def get_courses(self):
+        return str(self.__user.courses)
+    
 

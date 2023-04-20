@@ -19,8 +19,12 @@ def get_news(user_id):
     db_sess = db_session.create_session()
     user = db_sess.query(User).filter(User.id == user_id).first()
     courses = str(user.courses).split(',')
+    res = []
+    for i in courses:
+        if i != 'none' and i not in res:
+            res.append(i)
     return jsonify(
         { 
-            'courses':[ {} for i in courses]
+            'courses': [{"link": f"{i}", "image": f"https://readme-typing-svg.herokuapp.com?color=909090&lines={i}+%23"} for i in res]
         }
     )

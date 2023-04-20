@@ -1,10 +1,11 @@
 from flask import Flask, render_template, redirect, request, flash, url_for
-from flask_login import LoginManager, login_user, login_required, current_user
+from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 from data import db_session
 from data.users import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from UserLogin import UserLogin
 import courses_api
+import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'andrew-bakradze'
@@ -55,9 +56,34 @@ def register():
     return render_template('index4.html')
 
 
-@app.route('/profile')
+@login_required
+@app.route('/profile', methods=["POST", "GET"])
 def profile():
-    return render_template('profile.html', title=str(current_user.get_name()))
+    data = requests.get(f"http://localhost:8000/api/courses/{current_user.get_id()}").json()
+    print(data)
+    if request.method == 'POST':
+        logout_user()
+        return redirect("/")
+    return render_template('profile.html', title=str(current_user.get_name()), courses=data)
+
+@login_required
+@app.route('/courses')
+def courses():
+    return render_template('courses.html')
+
+@login_required
+@app.route('/flask_base', methods=["POST", "GET"])
+def flask_base():
+    if request.method == 'POST':
+        db_sess = db_session.create_session()
+        db_sess.query(User).filter(User.id == current_user.get_id()).update({"courses": f"{current_user.get_courses()}, flask_base"}, synchronize_session='fetch')
+        db_sess.commit()
+    return render_template('flask_base.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 def main():
     db_session.global_init("db/subScript.db")
